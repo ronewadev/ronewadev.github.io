@@ -73,3 +73,92 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+ // Mobile drawer functionality
+ document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const drawerClose = document.getElementById('drawerClose');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const overlay = document.getElementById('overlay');
+    
+    // Toggle mobile menu
+    mobileMenuToggle.addEventListener('click', function() {
+        mobileDrawer.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+    
+    // Close drawer when clicking close button
+    drawerClose.addEventListener('click', function() {
+        closeDrawer();
+    });
+    
+    // Close drawer when clicking overlay
+    overlay.addEventListener('click', function() {
+        closeDrawer();
+    });
+    
+    // Close drawer function
+    function closeDrawer() {
+        mobileDrawer.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // Close drawer when clicking on navigation links
+    const drawerLinks = document.querySelectorAll('.drawer-nav a');
+    drawerLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            closeDrawer();
+        });
+    });
+    
+    // Dark mode toggle function
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        const icons = document.querySelectorAll('.dark-mode-toggle i');
+        icons.forEach(icon => {
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+        
+        // Save preference to localStorage
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isDarkMode);
+    }
+    
+    // Check for saved dark mode preference
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+        const icons = document.querySelectorAll('.dark-mode-toggle i');
+        icons.forEach(icon => {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        });
+    }
+    
+    // Close drawer when window is resized to desktop size
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 992) {
+            closeDrawer();
+        }
+    });
+    
+    // Highlight current page in navigation
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-link, .drawer-nav a');
+    
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (currentPage === linkPage) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+});

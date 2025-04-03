@@ -1,0 +1,203 @@
+/* Bubbles Animation */
+.bubbles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
+.bubbles li {
+    position: absolute;
+    list-style: none;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+    border-radius: 50%;
+}
+
+.bubbles li:nth-child(1) {
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+.bubbles li:nth-child(2) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.bubbles li:nth-child(3) {
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.bubbles li:nth-child(4) {
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.bubbles li:nth-child(5) {
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.bubbles li:nth-child(6) {
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.bubbles li:nth-child(7) {
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+
+/* Contact Section */
+.contact-section {
+    padding: 80px 0;
+    background-color: var(--light-color);
+}
+
+.contact-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.contact-info {
+    padding: 40px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    height: 100%;
+}
+
+.contact-info h2 {
+    font-weight: 700;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.contact-info h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+}
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="row g-0 shadow-lg rounded-3 overflow-hidden">
+                <div class="col-lg-5 bg-primary text-white">
+                    <div class="contact-info h-100">
+                        <h2 class="animate__animated animate__fadeIn">Contact Information</h2>
+                        
+                        <div class="info-item animate__animated animate__fadeIn animate__delay-1s">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>ronewadev@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item animate__animated animate__fadeIn animate__delay-1s">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>+27 (0)79 281 8288</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item animate__animated animate__fadeIn animate__delay-1s">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Address</h3>
+                                <p>106 Madiba Street, Pretoria, 0001, South Africa</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links animate__animated animate__fadeIn animate__delay-2s">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7 bg-white">
+                    <div class="contact-form h-100">
+                        <h2 class="animate__animated animate__fadeIn">Send Me a Message</h2>
+                        
+                        <form id="contactForm" action="https://formspree.io/f/xwplroro" method="POST" class="animate__animated animate__fadeIn animate__delay-1s">
+                            <div class="mb-4">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" name="subject" required>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="message" class="form-label">Your Message</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">
+                                <span class="submit-text">Send Message</span>
+                                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            </button>
+                            
+                            <div id="form-status" class="form-status mt-3"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

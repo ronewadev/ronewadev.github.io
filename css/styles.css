@@ -51,6 +51,200 @@ header {
     transition: var(--transition);
 }
 
+/* Mobile Drawer Styles */
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: white;
+    z-index: 1050;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    transition: left 0.3s ease;
+}
+
+.mobile-drawer.open {
+    left: 0;
+}
+
+.drawer-content {
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.drawer-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.drawer-header .logo-img {
+    font-size: 1.8rem;
+    margin-right: 10px;
+}
+
+.drawer-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    color: #333;
+    transition: transform 0.3s ease;
+}
+
+.drawer-close:hover {
+    transform: rotate(90deg);
+    color: var(--primary-color);
+}
+
+.drawer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.drawer-nav li {
+    margin-bottom: 0;
+}
+
+.drawer-nav a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: rgba(78, 84, 200, 0.05);
+}
+
+.drawer-nav a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.drawer-nav a:hover,
+.drawer-nav a.active {
+    background: rgba(78, 84, 200, 0.1);
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.drawer-nav a.active {
+    background: rgba(78, 84, 200, 0.15);
+    font-weight: 600;
+}
+
+.mobile-drawer .dark-mode-toggle {
+    margin-top: auto;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.mobile-drawer .dark-mode-toggle:hover {
+    background: rgba(78, 84, 200, 0.1);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1040;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Desktop Menu Animations */
+.navbar-nav .nav-link {
+    position: relative;
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 80%;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Hide Bootstrap's mobile menu */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        display: none !important;
+    }
+}
+
+/* Custom mobile menu toggle button */
+#mobileMenuToggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+#mobileMenuToggle:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+@media (max-width: 991.98px) {
+    #mobileMenuToggle {
+        display: block;
+    }
+}
 body.dark-mode header {
     background: var(--glass-dark);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -1183,6 +1377,31 @@ footer {
     color: var(--primary-color);
     font-size: 1.2rem;
 }
+header.navbar.navbar-expand-lg.navbar-light.bg-white {
+  
+        width: 90%;
+        max-width: 1400px;
+        margin: 20px auto;
+        background: var(--glass-light);
+        backdrop-filter: blur(10px);
+        display: flex
+    ;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        position: sticky;
+        top: 20px;
+        z-index: 1000;
+        transition: var(--transition);
+    
+}
+/* Animation Classes */
+.animate__animated {
+    animation-duration: 1s;
+}
+
 /* Form Status Messages */
 .form-status {
     margin-top: 20px;
