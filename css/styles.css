@@ -32,6 +32,11 @@ body.dark-mode {
     color: var(--text-dark);
 }
 
+header.navbar.navbar-expand-lg.navbar-light.bg-white.dark-mode{
+    background: var(--card-bg-dark);
+    color: var(--text-dark);
+}
+
 /* Header Styles */
 header {
     width: 90%;
@@ -220,6 +225,124 @@ header {
 @media (max-width: 991.98px) {
     .navbar-collapse {
         display: none !important;
+    }
+}
+
+/* Dark mode */
+
+/* Dark Mode Styles for Header and Menu */
+header.dark-mode {
+    background: var(--card-bg-dark);
+    color: var(--text-dark);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Desktop Menu Dark Mode */
+.dark-mode .navbar-nav .nav-link {
+    color: var(--text-dark);
+}
+
+.dark-mode .navbar-nav .nav-link:hover,
+.dark-mode .navbar-nav .nav-link.active {
+    color: var(--accent-color);
+}
+
+/* Mobile Drawer Dark Mode */
+.dark-mode .mobile-drawer {
+    background: var(--bg-dark);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+}
+
+.dark-mode .drawer-header {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.dark-mode .drawer-nav a {
+    color: var(--text-dark);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .drawer-nav a:hover,
+.dark-mode .drawer-nav a.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent-color);
+}
+
+.dark-mode .drawer-close {
+    color: var(--text-dark);
+}
+
+/* Dark Mode Toggle in Menu */
+.menu-dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    margin: 15px 0;
+    background: rgba(78, 84, 200, 0.05);
+}
+
+.dark-mode .menu-dark-mode-toggle {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.menu-dark-mode-toggle:hover {
+    background: rgba(78, 84, 200, 0.1);
+}
+
+.dark-mode .menu-dark-mode-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-dark-mode-toggle i {
+    transition: transform 0.3s ease;
+}
+
+/* Desktop Menu Dark Mode Toggle */
+.desktop-dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.desktop-dark-mode-toggle:hover {
+    background: rgba(78, 84, 200, 0.1);
+}
+img.profile {
+    width: 300px;
+    vertical-align: middle;
+}
+.dark-mode .bg-white {
+    --bs-bg-opacity: 1;
+    background-color: rgb(14 37 73) !important;
+}
+.dark-mode .desktop-dark-mode-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (min-width: 992px) {
+    .mobile-drawer,
+    .overlay {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: none;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .desktop-dark-mode-toggle {
+        display: none;
     }
 }
 
